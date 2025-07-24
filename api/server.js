@@ -30,7 +30,7 @@ if (!JWT_SECRET || !DB_PASSWORD || !SENDGRID_API_KEY) {
 
 // --- Middleware ---
 const corsOptions = {
-  origin: 'https://your-domain-name-here.com' // Replace with your actual domain
+  origin: 'https://fastit.co.za' // Replace with your actual domain
 };
 app.use(cors(corsOptions));
  // For production, restrict this to your frontend's domain
@@ -412,7 +412,7 @@ app.post('/api/tickets', authenticateToken, async (req, res) => {
             try {
                 console.log(`Sending new ticket confirmation to ${customer_email}`);
                 await mailTransporter.sendMail({
-                    from: '"Support Name" <email@email.com>',
+                    from: '"Fast IT Support" <ruan@fastit.co.za>',
                     to: customer_email,
                     subject: `[Ticket #${newTicketId}] Your support request has been received: ${title}`,
                     html: `
@@ -484,7 +484,7 @@ app.post('/api/tickets/:ticketId/updates', authenticateToken, async (req, res) =
             console.log(`Sending update email to ${ticket.customer_email}`);
 
             await mailTransporter.sendMail({
-                from: '"Support Name" <email@email.com>',
+                from: '"Fast IT Support" <ruan@fastit.co.za>',
                 to: ticket.customer_email,
                 subject: `Re: [Ticket #${ticketId}] ${ticket.title}`,
                 html: `
@@ -551,7 +551,7 @@ app.put('/api/tickets/:ticketId', authenticateToken, isAdmin, async (req, res) =
             if (oldTicket.status !== updatedTicket.status) {
                 console.log(`Status changed from ${oldTicket.status} to ${updatedTicket.status}. Sending email.`);
                 await mailTransporter.sendMail({
-                    from: '"Support Name" <email@email.com>',
+                    from: '"Fast IT Support" <ruan@fastit.co.za>',
                     to: updatedTicket.customer_email,
                     subject: `Re: [Ticket #${ticketId}] Status Updated: ${updatedTicket.title}`,
                     html: `<p>Hello,</p><p>The status of your support ticket has been updated from <b>${oldTicket.status}</b> to <b>${updatedTicket.status}</b>.</p>`
@@ -562,7 +562,7 @@ app.put('/api/tickets/:ticketId', authenticateToken, isAdmin, async (req, res) =
             if (oldTicket.priority !== updatedTicket.priority) {
                 console.log(`Priority changed from ${oldTicket.priority} to ${updatedTicket.priority}. Sending email.`);
                 await mailTransporter.sendMail({
-                    from: '"Support Name" <email@email.com>',
+                    from: '"Fast IT Support" <ruan@fastit.co.za>',
                     to: updatedTicket.customer_email,
                     subject: `Re: [Ticket #${ticketId}] Priority Updated: ${updatedTicket.title}`,
                     html: `<p>Hello,</p><p>The priority of your support ticket has been updated from <b>${oldTicket.priority}</b> to <b>${updatedTicket.priority}</b>.</p>`
@@ -574,7 +574,7 @@ app.put('/api/tickets/:ticketId', authenticateToken, isAdmin, async (req, res) =
                 const assigneeName = updatedTicket.assigned_user_name || 'our team';
                 console.log(`Ticket assigned to ${assigneeName}. Sending email.`);
                 await mailTransporter.sendMail({
-                    from: '"Support Name" <email@email.com>',
+                    from: '"Fast IT Support" <ruan@fastit.co.za>',
                     to: updatedTicket.customer_email,
                     subject: `Re: [Ticket #${ticketId}] Your Ticket Has Been Assigned: ${updatedTicket.title}`,
                     html: `<p>Hello,</p><p>Your support ticket has been assigned to <b>${assigneeName}</b>. They will be in touch with you shortly.</p>`

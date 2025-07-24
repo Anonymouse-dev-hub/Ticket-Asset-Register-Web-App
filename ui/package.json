@@ -38,8 +38,8 @@
     "tailwindcss": "3.4"
   },
   "build": {
-    "appId": "com.crm",
-    "productName": "CRM SYSTEM",
+    "appId": "com.fastit.assetregister",
+    "productName": "Asset Register",
     "files": [
       "build/**/*",
       "main.js",
