@@ -106,7 +106,7 @@ To get the application running locally, you will need to set up both the backend
 
 ### 3. Production Build
 
-When you are ready to deploy, run the following command in the `asset-register-ui` directory:
+When you are ready to deploy, run the following command in the `ui` directory:
 
 ```bash
 npm run build
