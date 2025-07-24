@@ -30,8 +30,10 @@ if (!JWT_SECRET || !DB_PASSWORD || !SENDGRID_API_KEY) {
 
 // --- Middleware ---
 const corsOptions = {
-  origin: 'https://fastit.co.za' // Replace with your actual domain
+  origin: 'https://localhost:3000', // Replace with your actual domain
+  
 };
+
 app.use(cors(corsOptions));
  // For production, restrict this to your frontend's domain
 app.use(express.json({ limit: '10mb' }));
